@@ -77,7 +77,6 @@ articleView.setTeasers = () => {
 // COMMENT: Where is this function called? Why?
 // PUT YOUR RESPONSE HERE
 articleView.initNewArticlePage = () => {
-  console.log('hello from form page');
   // TODO: Ensure the main .tab-content area is revealed. We might add more tabs later or otherwise edit the tab navigation.
   $('.tab-content').show();
 
@@ -94,7 +93,6 @@ articleView.initNewArticlePage = () => {
 };
 
 articleView.create = () => {
-  console.log('enter text in form');
   // TODO: Set up a variable to hold the new article we are creating.
   // Clear out the #articles element, so we can put in the updated preview
   $('#articles > *').remove()
@@ -105,7 +103,7 @@ articleView.create = () => {
     category : $('#category').val(),
     author : $('#author').val(),
     authorUrl : $('#authorUrl').val(),
-    publishedOn : $('#publishedOn').val(),
+    publishedOn : $('#publishedOn').length ? new Date : null,
     body : $('#body').val(),
   }
 
@@ -119,9 +117,6 @@ articleView.create = () => {
 
   // TODO: Show our export field, and export the new article as JSON, so it's ready to copy/paste into blogArticles.js:
   $('#article-json').val(JSON.stringify(article));
-
-  //stringified number is a string... need to unstringify to have a number for the date here
-
 };
 
 // COMMENT: Where is this function called? Why?
